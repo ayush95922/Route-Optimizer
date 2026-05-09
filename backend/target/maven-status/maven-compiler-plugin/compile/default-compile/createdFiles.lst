@@ -1,0 +1,15 @@
+com\smartroute\controller\TripController.class
+com\smartroute\model\User.class
+com\smartroute\controller\RouteController.class
+com\smartroute\config\SecurityConfig.class
+com\smartroute\SmartRouteApplication.class
+com\smartroute\service\TripService.class
+com\smartroute\controller\ChampionController.class
+com\smartroute\controller\AuthController.class
+com\smartroute\service\RouteService.class
+com\smartroute\model\RouteResult.class
+com\smartroute\service\ChampionService.class
+com\smartroute\model\Trip.class
+com\smartroute\service\AuthService.class
+com\smartroute\repository\TripRepository.class
+com\smartroute\repository\UserRepository.class

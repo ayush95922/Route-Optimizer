@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartRoute | Indore Transit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    // Prevent FOUC for dark mode
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: { green: '#22c55e', dark: '#0f2027' },
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8faf9] dark:bg-brand-dark font-sans text-brand-dark dark:text-white relative overflow-x-hidden transition-colors duration-300">
+  <!-- Animated Background Blobs -->
+  <div class="absolute top-0 -left-4 w-96 h-96 bg-green-300 dark:bg-green-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[128px] opacity-40 animate-blob -z-10"></div>
+  <div class="absolute top-0 -right-4 w-96 h-96 bg-emerald-200 dark:bg-emerald-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[128px] opacity-40 animate-blob animation-delay-2000 -z-10"></div>
+  <div class="absolute -bottom-8 left-20 w-96 h-96 bg-teal-200 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[128px] opacity-40 animate-blob animation-delay-4000 -z-10"></div>
+
+  <!-- NAV -->
+  <nav class="backdrop-blur-xl bg-[#0f2027]/90 px-8 py-4 flex items-center justify-between sticky top-0 z-50 border-b border-white/10 shadow-2xl transition-all duration-300">
+    <a href="index.html" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg shadow-green-500/30 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <span class="text-white font-bold text-lg tracking-tight"><span class="text-white">Smart</span><span class="text-green-400">Route</span></span>
+        <div class="text-[10px] text-green-400 tracking-widest font-medium -mt-1">INDORE TRANSIT</div>
+      </div>
+    </a>
+    <div class="flex items-center gap-8">
+      <a href="index.html" class="text-white font-medium text-sm border-b-2 border-green-400 pb-0.5">Home</a>
+      <a href="routes.html" class="text-gray-400 hover:text-white font-medium text-sm transition">Find Routes</a>
+      <a href="champions.html" class="text-gray-400 hover:text-white font-medium text-sm transition">Champions</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button id="themeToggle" class="text-gray-400 hover:text-white transition focus:outline-none p-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5">
+        <svg id="themeToggleLightIcon" class="hidden w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg id="themeToggleDarkIcon" class="hidden w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+      <a href="login.html" class="text-white text-sm font-medium hover:text-green-400 transition">Sign in</a>
+      <a href="signup.html" class="bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="min-h-[calc(100vh-60px)] flex items-center px-16">
+    <div class="flex w-full gap-16 items-center">
+
+      <!-- Left: text -->
+      <div class="flex-1 max-w-2xl">
+        <div class="inline-flex items-center gap-2 bg-green-50/80 dark:bg-green-900/30 backdrop-blur-sm border border-green-200/50 dark:border-green-500/20 rounded-full px-4 py-2 text-xs font-bold tracking-wide text-green-700 dark:text-green-400 mb-8 shadow-sm transition-transform hover:scale-105">
+          <span class="relative flex h-2 w-2 mr-1">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          BUILT FOR INDORE · LIVE TRANSIT DATA
+        </div>
+        <h1 class="text-6xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark dark:text-white mb-4 tracking-tight transition-colors">
+          Every meter you<br/>move,
+        </h1>
+        <h1 class="text-6xl lg:text-7xl font-extrabold leading-[1.1] text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-400 mb-6 tracking-tight drop-shadow-sm">
+          the city breathes<br/>easier.
+        </h1>
+        <p class="text-gray-600 dark:text-gray-300 text-lg lg:text-xl mb-10 max-w-xl leading-relaxed font-medium transition-colors">
+          SmartRoute compares Bus, Walk, Cycle and Car for any Indore route<br/>
+          — and tells you exactly how much CO₂ you save by skipping the car.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="routes.html" class="group inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all duration-300 shadow-[0_0_40px_-10px_rgba(34,197,94,0.6)] hover:shadow-[0_0_60px_-15px_rgba(34,197,94,0.8)] hover:-translate-y-1">
+            Find a route
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="champions.html" class="inline-flex items-center gap-2 bg-white/50 dark:bg-white/10 backdrop-blur-sm border-2 border-transparent hover:border-green-200 dark:hover:border-green-500/50 hover:bg-white dark:hover:bg-white/20 text-gray-700 dark:text-white hover:text-green-700 dark:hover:text-green-400 font-bold px-8 py-4 rounded-2xl text-lg transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-green-500/10 dark:hover:shadow-green-500/20">
+            Track my impact
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: stat cards -->
+      <div class="grid grid-cols-2 gap-5 w-80 flex-shrink-0">
+        <div class="bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white dark:border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] dark:hover:border-white/20 group">
+          <div class="text-4xl font-extrabold text-brand-dark dark:text-white group-hover:text-green-500 dark:group-hover:text-green-400 transition-colors">18+</div>
+          <div class="text-[11px] text-gray-500 dark:text-gray-400 font-bold tracking-widest mt-2 uppercase transition-colors">Indore Routes</div>
+        </div>
+        <div class="bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white dark:border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] dark:hover:border-white/20 group translate-y-4">
+          <div class="text-4xl font-extrabold text-brand-dark dark:text-white group-hover:text-green-500 dark:group-hover:text-green-400 transition-colors">4</div>
+          <div class="text-[11px] text-gray-500 dark:text-gray-400 font-bold tracking-widest mt-2 uppercase transition-colors">Travel Modes</div>
+        </div>
+        <div class="bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white dark:border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] dark:hover:border-white/20 group">
+          <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-emerald-600">78%</div>
+          <div class="text-[11px] text-gray-500 dark:text-gray-400 font-bold tracking-widest mt-2 uppercase transition-colors">Avg CO₂ Cut</div>
+        </div>
+        <div class="bg-white/70 dark:bg-white/5 backdrop-blur-md rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white dark:border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] dark:hover:border-white/20 group translate-y-4">
+          <div class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-400 to-emerald-600">LIVE</div>
+          <div class="text-[11px] text-gray-500 dark:text-gray-400 font-bold tracking-widest mt-2 uppercase transition-colors">Bus Numbers</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="py-24 px-16 relative z-10 bg-white/40 dark:bg-brand-dark/40 backdrop-blur-3xl border-y border-white/20 dark:border-white/5 transition-colors">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-2 text-green-600 dark:text-green-400 text-xs font-bold tracking-widest mb-4 transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          WHY CHOOSE US
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black text-brand-dark dark:text-white mb-6 transition-colors">Why ride with <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-400 drop-shadow-sm">SmartRoute</span>?</h2>
+        <p class="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto transition-colors leading-relaxed">We're bringing transparency to city transit. Make informed choices that save you time, money, and reduce your carbon footprint.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 dark:border-white/10 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.1)]">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-50 dark:from-green-900/40 dark:to-emerald-900/20 rounded-2xl flex items-center justify-center mb-6 text-green-600 dark:text-green-400 shadow-inner border border-white dark:border-white/5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-brand-dark dark:text-white mb-3 transition-colors">Cost & Time Efficiency</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">Instantly compare travel times and prices across buses, cycling, walking, and driving to find the optimal route for your schedule.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 dark:border-white/10 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.1)] md:translate-y-6">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-50 dark:from-green-900/40 dark:to-emerald-900/20 rounded-2xl flex items-center justify-center mb-6 text-green-600 dark:text-green-400 shadow-inner border border-white dark:border-white/5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-brand-dark dark:text-white mb-3 transition-colors">Live Transit Tracking</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">Never miss a bus again. Get live updates on bus locations and accurate ETAs across 18+ major routes in Indore.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/80 dark:border-white/10 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_20px_40px_rgb(34,197,94,0.1)] dark:hover:shadow-[0_20px_40px_rgba(34,197,94,0.1)]">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-50 dark:from-green-900/40 dark:to-emerald-900/20 rounded-2xl flex items-center justify-center mb-6 text-green-600 dark:text-green-400 shadow-inner border border-white dark:border-white/5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <h3 class="text-xl font-extrabold text-brand-dark dark:text-white mb-3 transition-colors">Earn Eco-Points</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed font-medium transition-colors">Every gram of CO₂ you save converts to points. Climb the Champions leaderboard and show off your environmental impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FOOTER -->
+  <footer class="py-24 px-16 text-center relative z-10">
+    <div class="max-w-3xl mx-auto bg-gradient-to-br from-green-500 to-emerald-600 rounded-[2.5rem] p-12 shadow-2xl shadow-green-500/20 relative overflow-hidden">
+      <!-- Decor -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full mix-blend-overlay filter blur-2xl -translate-y-1/2 translate-x-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-black opacity-10 rounded-full mix-blend-overlay filter blur-2xl translate-y-1/3 -translate-x-1/4"></div>
+      
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-6 relative z-10 tracking-tight">Ready to transform your daily commute?</h2>
+      <p class="text-green-50 text-lg mb-10 max-w-xl mx-auto relative z-10 font-medium">Join thousands of Indore citizens making smarter, greener transit choices every single day.</p>
+      
+      <a href="signup.html" class="inline-flex items-center gap-2 bg-white text-green-600 font-extrabold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl relative z-10 group">
+        Join SmartRoute Today
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="mt-20 flex items-center justify-between max-w-6xl mx-auto border-t border-gray-200 dark:border-white/10 pt-8 transition-colors">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="text-brand-dark dark:text-white font-bold text-sm transition-colors">SmartRoute</span>
+      </div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 font-medium transition-colors">
+        &copy; 2026 SmartRoute Indore. Built for a greener city.
+      </div>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
