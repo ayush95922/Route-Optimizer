@@ -126,3 +126,5 @@ Open `smartroute/frontend/index.html` in your browser.
 - Leaflet.js interactive map
 - Champions leaderboard
 - MongoDB persistence for users and trips
+
+## Dark mode 
