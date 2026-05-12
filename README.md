@@ -10,9 +10,18 @@ The application also includes a modern responsive UI with Dark Mode support, int
 
 # Screenshots
 
-| Home | Find Routes | Comparison | Champions |
-|------|-------------|-------------|------------|
-| Hero section + stats | Route search with preferences | Multi-mode comparison cards + map | Eco leaderboard |
+Home |
+<img width="1920" height="1200" alt="{107FC103-A702-4246-B14F-73974626350B}" src="https://github.com/user-attachments/assets/14b94524-ca97-4725-9bcb-439752609bc9" />
+
+Find Routes | 
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/4014382a-8d0e-46fb-8cbf-776bae242a1f" />
+
+Comparison |
+<img width="1920" height="1200" alt="{DDA0D002-C4AB-4DA6-BED5-4B06EF234571}" src="https://github.com/user-attachments/assets/c35083be-e514-4b23-85f7-8c9b617af012" />
+
+Champions |
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f27a6269-b3d2-40f1-943e-a241b5e08240" />
+|
 
 ---
 
