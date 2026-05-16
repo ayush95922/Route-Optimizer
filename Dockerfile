@@ -1,5 +1,5 @@
 # Stage 1: Build the backend with Maven
-FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
+FROM maven:3.9.6-eclipse-temurin-17-jammy AS build
 WORKDIR /app
 
 # Copy the pom.xml and source code
@@ -14,7 +14,7 @@ WORKDIR /app/backend
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the Spring Boot application
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/backend/target/*.jar app.jar
 EXPOSE 8080
