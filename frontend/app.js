@@ -1,6 +1,6 @@
 // SmartRoute — Shared JS
 
-var API = 'http://localhost:8080/api';
+var API = window.location.origin.includes('localhost') ? 'http://localhost:8080/api' : '/api';
 
 // Show logged-in user in nav
 document.addEventListener('DOMContentLoaded', () => {
